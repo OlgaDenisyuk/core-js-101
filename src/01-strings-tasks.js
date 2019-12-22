@@ -234,8 +234,23 @@ function getRectangleString(/* width, height */) {
  *
  */
 function encodeToRot13(/* str */) {
+/*  const rtChArray = [];
+  const regEx = /[A-Z]/;
+  const str2 = str.split('');
+
+  Object.keys(str2).forEach((x) => {
+    if (regEx.test(str2[x])) {
+      rtChArray.push(((str2[x].charCodeAt() - 65 + 13) % 26) + 65);
+    } else {
+      rtChArray.push(str2[x].charCodeAt());
+    }
+  });
+  // const str3 = String.fromCharCode.apply(String, rtChArray);
+  const str3 = String.fromCharCode(...rtChArray);
+  return str3; */
   throw new Error('Not implemented');
 }
+
 
 /**
  * Returns true if the value is string; otherwise false.

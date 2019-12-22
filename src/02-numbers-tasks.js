@@ -51,10 +51,9 @@ function getCicleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  /* const result = ((value1 + value2) / 2).toFixed(30);
-  return result; */
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  const result = ((value1 / 2) + (value2 / 2)).toFixed(0);
+  return result;
 }
 
 /**
@@ -72,8 +71,11 @@ function getAverage(/* value1, value2 */) {
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
  */
-function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getDistanceBetweenPoints(x1, y1, x2, y2) {
+  const dx = x2 - x1;
+  const dy = y2 - y1;
+  const S = Math.sqrt(dx ** 2 + dy ** 2);
+  return S;
 }
 
 /**
@@ -88,8 +90,9 @@ function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
  *   x + 8 = 0       => -8
  *   5*x = 0         => 0
  */
-function getLinearEquationRoot(/* a, b */) {
-  throw new Error('Not implemented');
+function getLinearEquationRoot(a, b) {
+  const result = -b / a;
+  return result;
 }
 
 
@@ -111,8 +114,12 @@ function getLinearEquationRoot(/* a, b */) {
  *   (0,1) (0,1)     => 0
  *   (0,1) (1,2)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const ab = x1 * x2 + y1 * y2;
+  const a = Math.sqrt(x1 ** 2 + y1 ** 2);
+  const b = Math.sqrt(x2 ** 2 + y2 ** 2);
+  const deg = Math.acos(ab / (a * b));
+  return deg;
 }
 
 /**
@@ -160,8 +167,9 @@ function parseNumberFromString(value) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelipidedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getParallelipidedDiagonal(a, b, c) {
+  const d = Math.sqrt(a ** 2 + b ** 2 + c ** 2);
+  return d;
 }
 
 /**
@@ -202,8 +210,24 @@ function roundToPowerOfTen(num, pow) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(n) {
+  let result = true;
+  if (n < 2) {
+    result = false;
+  } else if (n === 2) {
+    result = true;
+  }
+
+  let i = 2;
+  const limit = Math.sqrt(n);
+  while (i <= limit) {
+    if (n % i === 0) {
+      result = false;
+    }
+    i += 1;
+  }
+
+  return result;
 }
 
 /**
@@ -221,8 +245,13 @@ function isPrime(/* n */) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  let result = def;
+  const value2 = +value;
+  if (value2 === parseInt(value2, 10)) {
+    result = value2;
+  }
+  return result;
 }
 
 module.exports = {
